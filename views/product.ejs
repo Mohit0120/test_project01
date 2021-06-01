@@ -1,0 +1,21 @@
+<%- include('./particals/header.ejs') %>
+    <link rel="stylesheet" href="../stylesheets/sellcar.css">
+    <div id="container">
+        <h1>All products</h1>
+        <div id="posts">
+            <%product.reverse().forEach(function(product){ %>
+                <div class="post">
+                    <img src=<%= product.productimage%> alt="some image">
+                    <h3><%= product.productname%></h3>
+                    <h3><%= product.productprice%></h3>
+
+                    <a href=<%= `delete():${product}` %>>delete </a>
+                    <a href=<%= `edit:${product}` %>>edit </a>
+                </div>
+            <% })%>
+            <%for(var i=0;i<pages;i++){%>
+                <a href=<%= `/product/${i}`%>> <%=i+1%></a>
+            <% }%>
+        </div>
+    </div>
+    <%- include('./particals/footer.ejs') %>

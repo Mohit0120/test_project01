@@ -1,0 +1,17 @@
+
+nav{
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+nav a:nth-child(1){
+    margin-right: 100px;
+}
+
+nav a{
+    font-weight: 500;
+    color: black;
+    margin-right: 20px;
+    text-decoration: none;
+}

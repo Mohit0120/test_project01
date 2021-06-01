@@ -1,0 +1,45 @@
+<%- include('./particals/header.ejs') %>
+<link rel="stylesheet" href="../stylesheets/profile.css">
+    <div id="container">
+        <div id="dets">
+            <div id="image">
+                <img src=<%= founduser.profileimg %> alt="">
+            </div>
+            <div id="txt">
+                <h2><%= founduser.name %></h2>
+                <button id="upload" >Upload</button>
+            </div>
+        </div>
+        <div id="form">
+            <h2>Make product listing.</h2>
+            <form action="/productinfo" method="POST" enctype="multipart/form-data">
+                <input type="text" placeholder="name" name="name">
+                <input type="text" placeholder="price" name="price">
+                <input type="text" name="describe" placeholder="Description">
+                <input type="file" name="productimage">
+                <input type="submit">
+            </form>
+        </div>
+        <div id="posts">
+            <h3>Your Previous Entries</h3>
+            <%founduser.products.reverse().forEach(function(car){ %>
+                <div class="post">
+                    <img src=<%= product.productimage%> alt="some image">
+                    <h3><%= product.name%></h3>
+                    <h3><%= product.price%></h3>
+                    <a href=<%= `delete():${product}` %>>delete </a>
+                    <a href=<%= `edit:${product}` %>>edit </a>
+                </div>
+            <% })%>
+            
+        </div>
+    </div>
+    <script>
+        document.querySelector('#upload').addEventListener('click',function(req,res){
+            document.querySelector('#imginp').click();
+        })
+        document.querySelector('#imginp').addEventListener('change',function(req,res){
+            document.querySelector('#frm').submit();
+        })
+    </script>
+    <%- include('./particals/footer.ejs') %>

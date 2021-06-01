@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../stylesheets/header.css">
+</head>
+
+<body>
+    <form id="frm" action="/upload" method="post" enctype="multipart/form-data">
+        <input style="display: none;" name="img" type="file" id="imginp">
+    </form>
+    <nav>
+        <a href="/">Product</a>
+        <a href="/sellcar/0">Add/Delete</a>
+        <a href="/dashboard">Dashboard</a>
+        <% if(userin==true){ %>
+            <a href="/logout">Log out</a>
+        <%}%>
+    </nav>
